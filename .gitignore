@@ -1,0 +1,47 @@
+# Создаем .gitignore в корне проекта
+cat > .gitignore << 'EOF'
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+pip-log.txt
+pip-delete-this-directory.txt
+.tox
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+
+# Node.js
+game-platform-frontend/node_modules/
+game-platform-frontend/.npm
+game-platform-frontend/.eslintcache
+game-platform-frontend/dist/
+game-platform-frontend/build/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Database
+*.sqlite3
+*.db
+
+# Environment variables
+.env
+.env.local
+.env.production
+EOF
