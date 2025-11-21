@@ -1,0 +1,285 @@
+.games-page {
+  padding-bottom: 40px;
+}
+
+/* Заголовок страницы */
+.games-header {
+  background: linear-gradient(135deg, var(--secondary-bg) 0%, var(--primary-bg) 100%);
+  padding: 25px 0;
+  margin-bottom: 30px;
+  border-radius: 15px;
+  position: relative;
+  overflow: hidden;
+}
+
+.games-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at top right, var(--accent-purple) 0%, transparent 50%);
+  opacity: 0.1;
+}
+
+.games-header-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.games-header-left {
+  flex: 1;
+}
+
+.games-title {
+  font-size: 2rem;
+  margin-bottom: 5px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.games-subtitle {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.games-search {
+  width: 300px;
+}
+
+.games-search-input {
+  width: 100%;
+  padding: 10px 16px;
+  background: var(--primary-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.games-search-input:focus {
+  outline: none;
+  border-color: var(--accent-purple);
+  box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.15);
+}
+
+.games-search-input::placeholder {
+  color: var(--text-muted);
+}
+
+/* Секция с играми */
+.games-section {
+  margin-top: 20px;
+}
+
+.games-stats {
+  margin-bottom: 20px;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* Сетка игр */
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* Карточка игры - фиксированный размер */
+.game-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  height: 380px; /* Фиксированная высота */
+  display: flex;
+  flex-direction: column;
+}
+
+.game-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(108, 99, 255, 0.15);
+  border-color: var(--accent-purple);
+}
+
+.game-image-container {
+  height: 180px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.game-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.game-card:hover .game-image {
+  transform: scale(1.05);
+}
+
+.game-image-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--accent-purple) 0%, var(--accent-purple-light) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.game-content {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0; /* Важно для фиксированного размера */
+}
+
+.game-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--text-primary);
+  line-height: 1.3;
+  flex-shrink: 0;
+}
+
+.game-description {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  line-height: 1.4;
+  margin-bottom: 15px;
+  flex: 1;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.game-actions {
+  margin-top: auto;
+  flex-shrink: 0;
+}
+
+.game-action-btn {
+  width: 100%;
+  padding: 10px 15px;
+  font-size: 0.9rem;
+  border-radius: 10px;
+}
+
+/* Состояния загрузки */
+.loading {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-secondary);
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--border-color);
+  border-top: 3px solid var(--accent-purple);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 15px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-secondary);
+}
+
+.empty-state h3 {
+  margin-bottom: 10px;
+  color: var(--text-primary);
+  font-size: 1.3rem;
+}
+
+.empty-state p {
+  font-size: 0.95rem;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .games-header {
+    padding: 20px 0;
+  }
+  
+  .games-header-content {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+  
+  .games-search {
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .games-title {
+    font-size: 1.7rem;
+  }
+  
+  .games-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+  }
+  
+  .game-card {
+    height: 360px;
+  }
+  
+  .game-image-container {
+    height: 160px;
+  }
+}
+
+@media (max-width: 480px) {
+  .games-header {
+    padding: 15px 0;
+  }
+  
+  .games-title {
+    font-size: 1.5rem;
+  }
+  
+  .games-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .games-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .game-card {
+    height: 350px;
+    max-width: 100%;
+  }
+  
+  .game-content {
+    padding: 15px;
+  }
+}
